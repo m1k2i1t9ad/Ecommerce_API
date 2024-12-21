@@ -1,0 +1,28 @@
+Watching for file changes with StatReloader
+calling httpbin
+recieved the response
+/home/h_mike/Django_projects/storefront/storefront3/storefront/settings.py changed, reloading.
+2024-12-18 16:14:05,649 (INFO)-django.utils.autoreload-Watching for file changes with StatReloader
+2024-12-18 16:14:12,487 (INFO)-playground.views-calling httpbin
+2024-12-18 16:14:15,157 (INFO)-playground.views-recieved the response
+2024-12-18 17:27:48,643 (INFO)-django.utils.autoreload-/home/h_mike/Django_projects/storefront/storefront3/manage.py changed, reloading.
+2024-12-18 17:31:35,381 (INFO)-django.utils.autoreload-Watching for file changes with StatReloader
+2024-12-18 17:31:37,562 (WARNING)-silk.profiling.profiler-Cannot execute silk_profile as silk is not installed correctly.
+2024-12-18 17:39:58,043 (WARNING)-silk.profiling.profiler-Cannot execute silk_profile as silk is not installed correctly.
+2024-12-21 15:06:03,624 (INFO)-django.utils.autoreload-Watching for file changes with StatReloader
+2024-12-21 15:06:05,285 (WARNING)-silk.profiling.profiler-Cannot execute silk_profile as silk is not installed correctly.
+2024-12-21 15:07:22,726 (WARNING)-django.request-Not Found: /(% static 'core/styles.css'%)
+2024-12-21 15:07:24,050 (WARNING)-django.request-Not Found: /favicon.ico
+2024-12-21 15:09:01,749 (INFO)-playground.views-calling httpbin
+2024-12-21 15:10:06,241 (INFO)-django.utils.autoreload-/home/h_mike/Django_projects/storefront/storefront3/storefront/settings/common.py changed, reloading.
+2024-12-21 15:10:29,060 (INFO)-django.utils.autoreload-Watching for file changes with StatReloader
+2024-12-21 15:10:30,843 (WARNING)-silk.profiling.profiler-Cannot execute silk_profile as silk is not installed correctly.
+2024-12-21 15:10:36,663 (INFO)-playground.views-calling httpbin
+2024-12-21 15:10:40,141 (INFO)-playground.views-recieved the response
+2024-12-21 15:17:44,706 (INFO)-django.utils.autoreload-/home/h_mike/Django_projects/storefront/storefront3/storefront/settings/common.py changed, reloading.
+2024-12-21 15:17:47,235 (INFO)-django.utils.autoreload-Watching for file changes with StatReloader
+2024-12-21 15:17:47,536 (WARNING)-silk.profiling.profiler-Cannot execute silk_profile as silk is not installed correctly.
+2024-12-21 15:23:21,839 (WARNING)-silk.profiling.profiler-Cannot execute silk_profile as silk is not installed correctly.
+2024-12-21 15:23:26,023 (WARNING)-django.request-Not Found: /(% static 'core/styles.css'%)
+2024-12-21 16:06:16,849 (WARNING)-silk.profiling.profiler-Cannot execute silk_profile as silk is not installed correctly.
+2024-12-21 16:06:18,891 (WARNING)-django.request-Not Found: /(% static 'core/styles.css'%)
