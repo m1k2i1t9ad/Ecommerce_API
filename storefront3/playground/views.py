@@ -7,6 +7,8 @@ from django.core.cache import cache
 from django.views.decorators.cache import cache_page
 from rest_framework.views import APIView
 from django.utils.decorators import method_decorator
+import logging
+
 # def say_hello(request):
 #     # try:
 #     #     #################################
@@ -58,10 +60,27 @@ def say_hello(request):
     data=response.json()
     return render(request, 'hello.html',{'name':data})
 '''
+'''
 #now waht if we used a class-based view? the @cache_page decorator won't work so we'll need another decorator:
 class Helloview(APIView):
     @method_decorator(cache_page(5*60))
     def get(self,request):
         response=requests.get('https://httpbin.org/delay/2')
         data=response.json()
+        return render(request, 'hello.html',{'name':'mosh'})
+'''
+
+######################################33
+#section8:logging:
+logger=logging.getLogger(__name__) #this "__name__" will translate to playground.views and only capture messages raised from this module
+
+class Helloview(APIView):
+    def get(self,request):
+        try:
+            logger.info('calling httpbin')
+            response=requests.get('https://httpbin.org/delay/2')
+            logger.info('recieved the response')
+            data=response.json()
+        except requests.ConnectionError:
+            logger.critical('httpbin is offline')
         return render(request, 'hello.html',{'name':'mosh'})

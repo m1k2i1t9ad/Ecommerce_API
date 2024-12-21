@@ -15,19 +15,14 @@ from datetime import timedelta
 from celery.schedules import crontab
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
-
+BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-hs6j037urx6iav+7#10%-vu4l4f5@@-1_zo)oft4g7$vf2$jmp'
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
 
-ALLOWED_HOSTS = []
+
 
 
 # Application definition
@@ -56,6 +51,7 @@ MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
     'debug_toolbar.middleware.DebugToolbarMiddleware',
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -64,8 +60,8 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     
 ]
-if DEBUG:
-    MIDDLEWARE += ['silk.middleware.SilkyMiddleware'] #cuz we should only use silk during development or testing(not during production) since it adds alot of overhead to each request
+# if DEBUG:
+#     MIDDLEWARE += ['silk.middleware.SilkyMiddleware'] #cuz we should only use silk during development or testing(not during production) since it adds alot of overhead to each request
     
 INTERNAL_IPS = [
     # ...
@@ -102,15 +98,6 @@ WSGI_APPLICATION = 'storefront.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'storefront3',
-        'HOST': 'localhost',
-        'USER': 'root',
-        'PASSWORD': 'mikitad1219'
-    }
-}
 
 
 # Password validation
@@ -150,9 +137,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [
-    BASE_DIR / "store/static",  # Adjust this according to your project structure
-]
+STATIC_ROOT=os.path.join(BASE_DIR, 'static')
 
 MEDIA_URL='/media/'
 
@@ -214,9 +199,42 @@ CACHES={
     "default":{
         "BACKEND":"django_redis.cache.RedisCache",
         "LOCATION":"redis://127.0.0.1:6379/2",
-        "TIMEOUT":10*60, #setting the time of storing the cache to 10 minitues
+        # "TIMEOUT":10*60, #setting the time of storing the cache to 10 minitues
         "OPTIONS":{
             "CLIENT_CLASS":"django_redis.client.DefaultClient",
         }
     }
+}
+
+###################################################
+#section8:configuring logging:
+#this is an important and flexible technique for diagnosing problems
+#so later after we deploy our application, if some future isn't working, we can look at out log file and troubleshoot the issue
+#so to do that,1s we need to configure the loggin here:
+LOGGING={ #here inside the logging setting, we define some keys:
+    'version':1,
+    'disable_existing_loggers':False, #always set to false cuc there're other loogers that come with django or other libraries we use that we don't wanna disable them 
+    'handlers':{    #with the handlers key, we determine what we wanna do with the log messages 
+        'console':{
+            'class':'logging.StreamHandler'  #with this class, we can write log messages to the console
+        },
+        'file':{
+            'class':'logging.FileHandler',
+            'filename':'general.log',
+            'formatter':'verbose'
+        }
+    },
+    'loggers':{ #this key is used to capture any log messages from the apps that we specify under it
+        '':{    #here the empty string meana we wanna capture all messages from all the apps(playground,store,tags,core....)
+         'handlers': ['console','file'], # after we capture the messages, we'll write them to the console and file as we said on the handlers key
+         'level': os.environ.get('DJANGO_LOG_LEVEL','INFO') #setting the level(severity) of log messages
+        }
+    },
+    'formatters':{ #with this key, we specify how long messages should be formmated 
+        'verbose':{
+            'format':'{asctime} ({levelname})-{name}-{message}',
+            'style':'{'  #str.format()
+        }
+    }
+    
 }
