@@ -26,5 +26,5 @@ The eCommerce API provides a robust backend solution for managing an online stor
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/yourusername/ecommerce-api.git
+   git clone https://github.com/m1k2i1t9ad/Django.git
    cd ecommerce-api
