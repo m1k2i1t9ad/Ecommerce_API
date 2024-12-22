@@ -1,0 +1,14 @@
+django
+djangorestframework
+djangorestframework-simplejwt
+mysqlclient
+django-extensions
+django-debug-toolbar
+django-cors-headers
+pytest
+pytest-django
+celery
+redis
+whitenoise
+pillow
+gunicorn
