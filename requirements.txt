@@ -12,3 +12,4 @@ redis
 whitenoise
 pillow
 gunicorn
+django-filters
