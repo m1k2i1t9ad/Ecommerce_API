@@ -1,0 +1,80 @@
+{% comment %} {% comment %} {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'core/styles.css' %}" />
+  </head>
+  <body>
+    <div class="home-page">
+      <img src="{% static 'core/mikebuy.png' %}" alt="Logo" class="logo" />
+    </div>
+  </body>
+</html>
+{% endcomment %} {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MikeBuy - Home</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="{% static 'core/styles.css' %}" />
+  </head>
+  <body>
+    <div class="container text-center mt-5">
+      <div class="logo-container mb-4">
+        <img
+          src="{% static 'core/mikebuy.png' %}"
+          alt="MikeBuy Logo"
+          class="img-fluid"
+        />
+      </div>
+      <h2>Welcome to MikeBuy API</h2>
+      <p class="lead">
+        Explore our API endpoints for products, collections, and more!
+      </p>
+      <h3 class="mt-4">API Endpoints</h3>
+      <ul class="list-group">
+        <li class="list-group-item">
+          <a href="{% url 'products-list' %}" class="btn btn-primary btn-block"
+            >Products</a
+          >
+        </li>
+        <li class="list-group-item">
+          <a
+            href="{% url 'collections-list' %}"
+            class="btn btn-primary btn-block"
+            >Collections</a
+          >
+        </li>
+        <li class="list-group-item">
+          <a href="{% url 'carts-list' %}" class="btn btn-primary btn-block"
+            >Carts</a
+          >
+        </li>
+        <li class="list-group-item">
+          <a href="{% url 'customers-list' %}" class="btn btn-primary btn-block"
+            >Customers</a
+          >
+        </li>
+        <li class="list-group-item">
+          <a href="{% url 'orders-list' %}" class="btn btn-primary btn-block"
+            >Orders</a
+          >
+        </li>
+      </ul>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </body>
+</html>
