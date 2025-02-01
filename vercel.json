@@ -9,7 +9,7 @@
       }
     }
   ],
-  "routers": [
+  "routes": [
     {
       "src": "/(.*)",
       "dest": "storefront/wsgi.py"
