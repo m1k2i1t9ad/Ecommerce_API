@@ -1,13 +1,17 @@
-eCommerce API
+ECommerce API:
+
 A backend eCommerce API built with Django and Django REST Framework, enabling CRUD operations for products, orders, customers, and carts. It is designed for managing an online store efficiently with features like product listings, order processing, and cart management.
 
-Features
+Features:
+
 Products: Manage products, their details, and pricing.
 Collections: Group products into categories.
 Carts: Add products to shopping carts for customer purchases.
 Customers: Manage customer data and accounts.
 Orders: Track customer orders and their statuses.
-API Endpoints
+
+API Endpoints:
+
 GET /store/: API Root
 
 Lists available resources for products, collections, carts, customers, and orders.
@@ -37,7 +41,8 @@ GET /store/orders/: List customer orders.
 
 POST /store/orders/: Create a new order.
 
-Technologies Used
+Technologies Used:
+
 Django 3.2: Framework for building the API.
 Django REST Framework: For API functionality.
 SQLite: Database for storing data.
@@ -47,16 +52,9 @@ Testing
 Run the tests using pytest for automated API endpoint testing.
 
 To run tests locally:
-
-bash
-Copy
-Edit
 pytest
 In Docker:
-
-bash
-Copy
-Edit
 docker-compose run --rm tests
+
 This API provides a foundational backend for building eCommerce platforms, enabling seamless management of products, orders, and customer data.
 
